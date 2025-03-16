@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>House Price Prediction</h2>
+    <form action="/predict" method="post">
+        <label>Longitude:</label>
+        <input type="text" name="longitude" required><br>
+
+        <label>Latitude:</label>
+        <input type="text" name="latitude" required><br>
+
+        <label>Housing Median Age:</label>
+        <input type="text" name="housing_median_age" required><br>
+
+        <label>Total Rooms:</label>
+        <input type="text" name="total_rooms" required><br>
+
+        <label>Total Bedrooms:</label>
+        <input type="text" name="total_bedrooms" required><br>
+
+        <label>Population:</label>
+        <input type="text" name="population" required><br>
+
+        <label>Households:</label>
+        <input type="text" name="households" required><br>
+
+        <label>Median Income:</label>
+        <input type="text" name="median_income" required><br>
+
+        <label>Ocean Proximity:</label>
+        <select name="ocean_proximity" required>
+            <option value="NEAR BAY">NEAR BAY</option>
+            <option value="INLAND">INLAND</option>
+            <option value="NEAR OCEAN">NEAR OCEAN</option>
+            <option value="ISLAND">ISLAND</option>
+            <option value="<1H OCEAN"><1H OCEAN</option>
+        </select><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>
